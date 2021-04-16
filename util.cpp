@@ -1,19 +1,9 @@
-//
-// -*- coding: utf-8-unix; -*-
-//  Copyright (c) 2020 Tencent, Inc.
-//     All rights reserved.
-//
-// Date:   2020/11/30 13:45
-// File:   zstd.cc
-// Desc:
-//
-
 #include "util.h"
 #include "third_party/zstd/zstd.h"
 
-namespace util {
+using namespace std;
 
-int Util::CompressString(const string& src, string& dst, int compressionlevel) {
+int Util::CompressString(const std::string& src, std::string& dst, int compressionlevel) {
   size_t const cBuffSize = ZSTD_compressBound(src.size());
   dst.resize(cBuffSize);
   auto dstp = const_cast<void*>(static_cast<const void*>(dst.c_str()));
@@ -137,4 +127,3 @@ int Util::StreamDecompressString(const string& src, string& dst, int compression
   return 0;
 }
 
-}  // namespace util
