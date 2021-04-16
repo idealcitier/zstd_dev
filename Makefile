@@ -1,4 +1,5 @@
 demo:demo.o util.o
+	cp ./third_party/zstd/libzstd.a .
 	g++ demo.o util.o libzstd.a -o demo 
 
 util.o:util.cpp
